@@ -6,6 +6,7 @@ import Router from "../app/Router.js"
 //import VerticalLayout from '../views/VerticalLayout'
 import firestore from "../app/Firestore"
 import { localStorageMock } from "../__mocks__/localStorage.js"
+import { invertFormatDate } from "../app/format.js"
 
 describe("Given I am connected as an employee", () => {
   describe("When I am on Bills Page", () => {
@@ -40,10 +41,15 @@ describe("Given I am connected as an employee", () => {
     test("Then bills should be ordered from earliest to latest", () => {
       const html = BillsUI({ data: bills })
       document.body.innerHTML = html
-      const dates = screen.getAllByText(/^(19|20)\d\d[- /.](0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])$/i).map(a => a.innerHTML)
-      const antiChrono = (a, b) => ((a < b) ? 1 : -1)
+      const dates = screen.getAllByText(/(?<day>[0-9]{0,2})[ ](?<month>[a-zA-Z]+)[.][ ](?<year>[0-9]{2})/).map(a => a.innerHTML)
+      console.log(dates)
+      const antiChrono = (a, b) => ((invertFormatDate(a) < invertFormatDate(b)) ? 1 : -1)
       const datesSorted = [...dates].sort(antiChrono)
       expect(dates).toEqual(datesSorted)
     })
   })
 })
+
+
+
+//   /^(19|20)\d\d[- /.](0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])$/i
