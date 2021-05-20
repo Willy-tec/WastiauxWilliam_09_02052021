@@ -30,9 +30,9 @@ describe("Given I am connected as an employee", () => {
 
       //Initialise the page
       Router()
-      //console.log(document.body.innerHTML)
+
       const billIcon = screen.getByTestId("icon-window")
-      console.log(billIcon)
+
       expect(billIcon.className).toBe("active-icon")
       //expect(billIcon).toHaveClass("active-icon")
       
@@ -42,7 +42,6 @@ describe("Given I am connected as an employee", () => {
       const html = BillsUI({ data: bills })
       document.body.innerHTML = html
       const dates = screen.getAllByText(/(?<day>[0-9]{0,2})[ ](?<month>[a-zA-Z]+)[.][ ](?<year>[0-9]{2})/).map(a => a.innerHTML)
-      console.log(dates)
       const antiChrono = (a, b) => ((invertFormatDate(a) < invertFormatDate(b)) ? 1 : -1)
       const datesSorted = [...dates].sort(antiChrono)
       expect(dates).toEqual(datesSorted)
