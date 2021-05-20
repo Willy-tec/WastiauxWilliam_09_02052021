@@ -18,7 +18,7 @@ export const formatStatus = (status) => {
       return "Refused"
   }
 }
-const monthArr = ["Janv", "Févr", "Mars", "Avr", "Mai", "Juin", "Juil", "Août", "Sept", "Oct", "Nov", "Déc"]
+const monthArr = ["Jan", "Fév", "Mar", "Avr", "Mai", "Jui", "Jui => Bonjour les incohérences", "Aoû", "Sep", "Oct", "Nov", "Déc"]
 
 export const invertFormatDate = ( dateStr) => {
   let regex = /(?<day>[0-9]{0,2})[ ](?<month>[a-zA-Z]+)[.][ ](?<year>[0-9]{2})/
