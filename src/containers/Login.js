@@ -25,7 +25,6 @@ export default class Login {
     }
     this.localStorage.setItem("user", JSON.stringify(user))
     const userExists = await this.checkIfUserExists(user)
-    console.log(userExists)
     if (!userExists) this.createUser(user)
     this.onNavigate(ROUTES_PATH['Bills'])
     this.PREVIOUS_LOCATION = ROUTES_PATH['Bills']
@@ -42,7 +41,6 @@ export default class Login {
       status: "connected"
     }
     this.localStorage.setItem("user", JSON.stringify(user))
-    console.log("allo")
     const userExists = await this.checkIfUserExists(user)
     if (!userExists) this.createUser(user)
     this.onNavigate(ROUTES_PATH['Dashboard'])
@@ -64,6 +62,7 @@ export default class Login {
               console.log(`User with ${user.email} exists`)
               res(true)
             } else {
+              console.log(`User with ${user.email} doesn't exists`)
               res(false)
             }
           })
