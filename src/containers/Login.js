@@ -68,8 +68,8 @@ export default class Login {
           })
       .catch(error => error)
     } else {
-      rej(null)
-    }})
+      rej(console.log("firestore not existing"))
+    }}).catch(error => error)
   }
 
   // not need to cover this function by tests
