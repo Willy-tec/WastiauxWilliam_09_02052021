@@ -38,11 +38,24 @@ export default class {
       .then(snapshot => {
         const bills = snapshot.docs
         .filter(bill => bill.data().email === userEmail)      //No need to map useless entries, so we filter before we map ...
-          .map(doc => ({
-            ...doc.data(),
-            date: formatDate(doc.data().date),
-            status: formatStatus(doc.data().status)
-          }))
+          .map(doc => {
+            try {
+              return {
+                ...doc.data(),
+                date: formatDate(doc.data().date),
+                status: formatStatus(doc.data().status)
+              }
+            } catch(e) {
+              // if for some reason, corrupted data was introduced, we manage here failing formatDate function
+              // log the error and return unformatted date in that case
+              console.log(e,'for',doc.data())
+              return {
+                ...doc.data(),
+                date: doc.data().date,
+                status: formatStatus(doc.data().status)
+              }
+            }
+          })
         return bills
       })
       .catch(error => error)
