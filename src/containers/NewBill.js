@@ -17,30 +17,26 @@ export default class NewBill {
   }
   handleChangeFile = e => {
     const file = this.document.querySelector(`input[data-testid="file"]`).files[0]
-    console.log("///////////////")
-    console.log(file)
-    const filePath = e.target.value.split(/\\/g)
-    console.log(e.target.value)
-    console.log("///////////////")
-    console.log(filePath)
-    const fileName = filePath[filePath.length-1]
+    const filePath = e.target.value ? e.target.value.split(/\\/g) : file.name.split(/\\/g)
+    const fileName = filePath.pop();
     const fileExt = fileName.match(/[^.]+/g).pop()    // Pop retire le dernier élément du tableau fourni par match(l'extension)
-    console.log("///////////////")
     console.log(fileExt)
-    //const fileExt = fileExtArr.pop()
-    //console.log(fileExt)
-    if(fileExt.toLowerCase().match(/(png|jpg|jpeg)/g))  console.log(this.document.querySelector(`input[data-testid="file"]`))
-/*     this.firestore
-      .storage
-      .ref(`justificatifs/${fileName}`)
-      .put(file)
-      .then(snapshot => snapshot.ref.getDownloadURL())
-      .then(url => {
-        this.fileUrl = url
-        this.fileName = fileName
-      }) */
-      else this.document.querySelector(`input[data-testid="file"]`).value = ""
-      console.log(this.document.querySelector(`input[data-testid="file"]`))
+    if(fileExt.toLowerCase().match(/(png|jpg|jpeg)/g)) 
+    {
+      if(this.firestore) 
+          {
+            this.firestore
+              .storage
+              .ref(`justificatifs/${fileName}`)
+              .put(file)
+              .then(snapshot => snapshot.ref.getDownloadURL())
+              .then(url => {
+                this.fileUrl = url
+                this.fileName = fileName
+                }) 
+          }  
+    }
+    else this.document.querySelector(`input[data-testid="file"]`).value = ""
   }
   handleSubmit = e => {
     e.preventDefault()
