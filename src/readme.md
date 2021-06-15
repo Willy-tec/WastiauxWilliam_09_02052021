@@ -1,6 +1,7 @@
 ###Scénario 1
 
 **Given** Je suis un visiteur (non connecté)
+
 **When** Je ne remplis pas le champ e-mail ou le champ password du login Employé et je clique sur le bouton "Se connecter"
 **Then** Je reste sur la page Login et je suis invité à remplir le champ manquant
 
