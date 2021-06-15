@@ -21,7 +21,13 @@ export const formatStatus = (status) => {
 }
 
 export const invertFormatDate = ( dateStr) => {
-  let regex = /(?<day>[0-9]{0,2})[ ](?<month>[a-zA-Z]+)[.][ ](?<year>[0-9]{2})/
-  let grouping = dateStr.match(regex).groups
+  let grouping
+  try{
+    let regex = /(?<day>[0-9]{0,2})[ ](?<month>[a-zA-Z]+)[.][ ](?<year>[0-9]{2})/
+    grouping = dateStr.match(regex).groups
+  } catch(e){
+    console.log(e)
+    return false
+  }
   return new Date("20"+grouping.year, monthArr.indexOf(grouping.month), grouping.day );
 }
