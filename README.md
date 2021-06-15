@@ -47,4 +47,6 @@ $jest src/__tests__/your_test_file.js
 
 `http://127.0.0.1:8080/coverage/lcov-report/`
 
+**Test End2End
 
+Dans le dossier end2end prévu pour
