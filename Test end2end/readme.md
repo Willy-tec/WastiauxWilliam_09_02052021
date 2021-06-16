@@ -21,7 +21,7 @@ _______________________________
 
 **Given** Je suis un visiteur (non connecté)
 
-**When** Je remplis le champ e-mail du login administrateur au bon format (sous la formechaîne@chaîne), le champ password du login Employé et je clique sur le bouton "Se connecter"
+**When** Je remplis le champ e-mail du login Employé au bon format (sous la formechaîne@chaîne), le champ password du login Employé et je clique sur le bouton "Se connecter"
 
 **Then** Je suis envoyé sur la page "bills"
 
@@ -84,7 +84,7 @@ _______________________________
 _______________________________
 ## Scénario 11
 
-**Given** Je suis un employé connecté, sur la page "bill/new"
+**Given** Je suis un employé connecté sur la page "bill/new"
 
 **When** Je clique sur l'icone "log out"
 
@@ -93,32 +93,40 @@ _______________________________
 _______________________________
 ## Scénario 12
 
-**Given** 
+**Given** Je suis un employé connecté sur la page "bill/new"
 
-**When** 
+**When** Je clique sur le champ input "type dépense"
 
-**Then** 
+**Then** Une liste déroulante doit s'afficher listant tout les types possibles
 _______________________________
 ## Scénario 13
 
-**Given** 
+**Given** Je suis un employé connecté sur la page "bill/new"
 
-**When** 
+**When** Je clique sur le champ "date"
 
-**Then** 
+**Then** Une boite de dialogue de type "datepicker" doit s'afficher
 _______________________________
 ## Scénario 14
 
-**Given** 
+**Given** Je suis un employé connecté sur la page "bill/new"
 
-**When** 
+**When** Je clique sur le champ "fichier"
 
-**Then** 
+**Then** Une boite de dialogue de type "explorateur" doit s'afficher, et limiter le choix des fichiers au type image
 _______________________________
 ## Scénario 15
 
-**Given** 
+**Given** Je suis un employé connecté sur la page "bill/new"
 
-**When** 
+**When** Je clique sur le champ "Envoyer", et les données saisie sont incorrect
 
-**Then** 
+**Then** Une boite de dialogue doit s'afficher en montrant l'endroit de l'erreur, et son type
+_______________________________
+## Scénario 16
+
+**Given** Je suis un employé connecté sur la page "bill/new"
+
+**When** Je clique sur le champ "Envoyer", et les données saisie sont correct
+
+**Then** Je suis redirigé vers la page "bill", et la nouvelle note est visible
