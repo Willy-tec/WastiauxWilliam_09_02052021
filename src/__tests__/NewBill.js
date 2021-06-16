@@ -86,6 +86,5 @@ describe("When i am connected as employe, And i try to submit a bill", ()=>{
         "email": "a@a",
         "pct": 20
       })
-
   })
 })
