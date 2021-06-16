@@ -106,7 +106,7 @@ describe("Given I am connected as an employee", () => {
       expect(modale).toBeTruthy()
       
     })
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////
+/*     ///////////////////////////////////////////////////////////////////////////////////////////////////////
     test("Then if there is no bill, we dont add eventlistener on icon eyes", () => {
       const html = BillsUI({ data : null})
       document.body.innerHTML = html
@@ -143,7 +143,7 @@ describe("Given I am connected as an employee", () => {
       const modale = screen.getByTestId('modaleFile')
       expect(modale).toBeTruthy()
 
-    })
+    }) */
     
     test("Then a click on new bill icon should open the new bill page", ()=>{
       const html = BillsUI({ data : bills})
