@@ -20,7 +20,6 @@ export default class NewBill {
     const filePath = e.target.value ? e.target.value.split(/\\/g) : file.name.split(/\\/g)
     const fileName = filePath.pop();
     const fileExt = fileName.match(/[^.]+/g).pop()    // Pop retire le dernier élément du tableau fourni par match(l'extension)
-    console.log(fileExt)
     if(fileExt.toLowerCase().match(/(png|jpg|jpeg)/g)) 
     {
       if(this.firestore) 
