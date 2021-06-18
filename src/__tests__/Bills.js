@@ -106,44 +106,6 @@ describe("Given I am connected as an employee", () => {
       expect(modale).toBeTruthy()
       
     })
-/*     ///////////////////////////////////////////////////////////////////////////////////////////////////////
-    test("Then if there is no bill, we dont add eventlistener on icon eyes", () => {
-      const html = BillsUI({ data : null})
-      document.body.innerHTML = html
-
-      Object.defineProperty(window, 'location', { value:{
-        hash: ROUTES_PATH['Bills']
-      }  })
-
-      //Mock the function
-      firestore.bills = () => ({bills, get: jest.fn().mockResolvedValue()})
-      //Mock a user
-      const user = JSON.stringify({
-        type: 'Employee'
-      })
-      window.localStorage.setItem('user', user)
-
-      const onNavigate = (pathname) => {
-        document.body.innerHTML = ROUTES({ pathname })
-      }
-
-      $.fn.modal = jest.fn();
-      let billed = new Bills({document, onNavigate, firestore, localStorage })
-
-
-      const iconEye = screen.getAllByTestId("icon-eye")[0]
-      const handleClickIconEyeMock = jest.fn((e)=> billed.handleClickIconEye(iconEye))
-      iconEye.addEventListener('click', handleClickIconEyeMock)
-      userEvent.click(iconEye)
-           
-      expect(handleClickIconEyeMock).toHaveBeenCalled()
-      
-      expect($.fn.modal).toHaveBeenCalled()
-
-      const modale = screen.getByTestId('modaleFile')
-      expect(modale).toBeTruthy()
-
-    }) */
     
     test("Then a click on new bill icon should open the new bill page", ()=>{
       const html = BillsUI({ data : bills})
